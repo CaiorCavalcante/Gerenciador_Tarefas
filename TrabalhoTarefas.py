@@ -11,6 +11,10 @@ def adicionar_tarefa():
         conn.commit()
         listar_tarefas()
         limpar_campos()
+    
+    with open("tarefas.txt", "w") as arquivo:
+        tarefas= f"Descricao: {descricao},\nData limite: {data_limite}"
+        arquivo.write(tarefas)
 
 def listar_tarefas():
     lista_tarefas.delete(0, tk.END)
